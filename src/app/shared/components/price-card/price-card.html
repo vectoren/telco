@@ -1,0 +1,25 @@
+<div class="card" [class.featured]="data.isFeatured">
+  @if (data.isFeatured) {
+    <div class="badge">Polecane</div>
+  }
+  
+  <div class="card-header">
+    <h3>{{ data.title }}</h3>
+    <div class="price-box">
+      <span class="currency">od</span>
+      <span class="amount"> {{ data.price }}</span>
+      <span class="period">/ {{ data.period }}</span>
+    </div>
+  </div>
+
+  <ul class="features-list">
+    @for (feature of data.features; track feature) {
+      <li>
+        <span class="check-icon">✔</span>
+        {{ feature }}
+      </li>
+    }
+  </ul>
+
+  <button class="btn-primary">{{ data.cta }}</button>
+</div>

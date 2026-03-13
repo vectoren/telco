@@ -1,1 +1,40 @@
-<p>price-list works!</p>
+<section class="pricing-section container">
+  <div class="section-header">
+    <span class="text-accent">// PAKIETY</span>
+  </div>
+  <div class="grid">
+    @for (item of pricing; track item.id) {
+      <app-price-card [data]="item"></app-price-card>
+    }
+  </div>
+</section>
+
+<section class="unit-pricing container">
+  <div class="section-header">
+    <span class="text-accent">// KONFIGURACJA NIESTANDARDOWA</span>
+    <h2>Cennik prac jednostkowych</h2>
+    <p>Nie znalazłeś odpowiedniego pakietu? Skonfiguruj własną instalację na podstawie poniższych stawek.</p>
+  </div>
+
+  <div class="unit-grid">
+    @for (cat of unitPricing; track cat.category) {
+      <div class="category-box glass-panel">
+        <h3>{{ cat.category }}</h3>
+        <div class="item-list">
+          @for (item of cat.items; track item.name) {
+            <div class="unit-item">
+              <span class="name">{{ item.name }}</span>
+              <span class="dots"></span>
+              <span class="price">{{ item.price }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="custom-cta">
+    <p>Potrzebujesz wyceny na większą ilość punktów? <strong>Uzyskaj nawet do -15% ceny przy instalacjach powyżej 50 punktów.</strong></p>
+    <a href="mailto:wycena@telco.pl" class="btn-primary">Poproś o wycenę indywidualną</a>
+  </div>
+</section>
