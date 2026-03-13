@@ -1,0 +1,28 @@
+<nav class="navbar">
+  <div class="nav-container">
+    <a routerLink="/" class="logo">
+      TELCO<span>.</span>
+    </a>
+
+    <div class="nav-links">
+      @for (link of navLinks; track link.path) {
+        <a [routerLink]="link.path" 
+           routerLinkActive="active" 
+           [routerLinkActiveOptions]="{ exact: link.path === '/' }">
+          {{ link.label }}
+        </a>
+      }
+    </div>
+
+    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="isMenuOpen()">
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="mobile-overlay" [class.show]="isMenuOpen()">
+    @for (link of navLinks; track link.path) {
+      <a [routerLink]="link.path" (click)="toggleMenu()">{{ link.label }}</a>
+    }
+  </div>
+</nav>
