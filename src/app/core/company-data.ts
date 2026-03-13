@@ -7,3 +7,9 @@ export const COMPANY_INFO = {
     github: 'https://github.com/telco-it'
   }
 };
+
+export const HERO_TITLES = [
+  "Projektujemy",
+  "Montujemy",
+  "Serwisujemy"
+]

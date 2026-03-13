@@ -2,7 +2,9 @@
   <div class="container">
     <div class="hero-content">
       <span class="badge">Eksperci Teleinformatyki</span>
-      <h1>Projektujemy sieci <br><span class="highlight">przyszłości.</span></h1>
+      <h1>
+        {{ currentText() }}
+      </h1>
       <p>Kompleksowy montaż, konfiguracja i utrzymanie infrastruktury IT dla Twojego biznesu. Gwarantujemy stabilność, której potrzebuje Twoja firma.</p>
       
       <div class="hero-actions">
@@ -52,7 +54,7 @@
       </div>
       
       <div class="cta-actions">
-        <a href="mailto:{{company.email}}"> class="btn-primary">Napisz do nas</a>
+        <a href="mailto:{{company.email}}" class="btn-primary">Napisz do nas</a>
         <div class="phone-box">
           <span class="label">Lub zadzwoń bezpośrednio:</span>
           <span class="number">{{company.phone}}</span>
