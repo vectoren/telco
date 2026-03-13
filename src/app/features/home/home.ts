@@ -8,7 +8,7 @@ import { COMPANY_INFO, HERO_TITLES } from '../../core/company-data';
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home implements OnInit {
+export class Home {
   // Sygnał do wyzwolenia animacji po załadowaniu
   isLoaded = signal(false);
   company = COMPANY_INFO;
@@ -21,7 +21,7 @@ export class Home implements OnInit {
   constructor() {
     afterNextRender(() => {
       this.shuffleText(this.heroTitles[this.titleIndex]);
-      
+      setTimeout(() => this.isLoaded.set(true), 100);
       this.intervalId = setInterval(() => {
         this.titleIndex = (this.titleIndex + 1) % this.heroTitles.length;
         this.shuffleText(this.heroTitles[this.titleIndex]);
@@ -54,10 +54,6 @@ export class Home implements OnInit {
     }, 30);
   }
 
-  ngOnInit() {
-    // Krótkie opóźnienie, aby animacja była widoczna po hydracji
-    setTimeout(() => this.isLoaded.set(true), 100);
-  }
   ngOnDestroy() {
     // Zawsze czyścimy interwały, żeby nie wyciekała pamięć
     if (this.intervalId) {
