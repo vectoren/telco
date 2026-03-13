@@ -1,0 +1,218 @@
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-content {
+    max-width: 800px;
+    z-index: 2;
+
+    .badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(var(--color-accent), 0.1);
+      border: 1px solid var(--color-accent);
+      color: var(--color-accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      margin-bottom: 1.5rem;
+
+      .highlight {
+        color: var(--color-accent);
+        text-shadow: 0 0 20px var(--color-accent-glow);
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.5rem;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
+
+    .btn-secondary {
+      padding: 0.8rem 1.8rem;
+      color: var(--color-white);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: center;
+      transition: var(--transition-base);
+      cursor: pointer;
+      &:hover {
+        color: var(--color-accent);
+      }
+    }
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--glass-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+    z-index: 1;
+    pointer-events: none;
+  }
+}
+
+.features-preview {
+  padding: 6rem 0;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-item {
+    padding: 3rem 2rem;
+    transition: var(--transition-base);
+
+    &:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    p {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+  }
+}
+
+.contact-cta {
+  padding-bottom: 8rem;
+
+  .cta-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+      135deg, 
+      rgba(var(--color-bg-secondary), 0.9) 0%, 
+      rgba(10, 25, 47, 0.95) 100%
+    );
+    
+    // Akcent świetlny w rogu
+    &::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 300px;
+      height: 300px;
+      background: var(--color-accent-glow);
+      filter: blur(80px);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      text-align: center;
+      padding: 3rem 2rem;
+      gap: 3rem;
+    }
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+
+    h2 {
+      font-size: 2.2rem;
+      margin: 1rem 0;
+    }
+
+    p {
+      color: var(--color-text-muted);
+      font-size: 1.1rem;
+    }
+  }
+
+  .cta-actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    @media (max-width: 992px) {
+      align-items: center;
+    }
+
+    .phone-box {
+      display: flex;
+      flex-direction: column;
+
+      .label {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--color-text-muted);
+        text-transform: uppercase;
+      }
+
+      .number {
+        font-size: 1.25rem;
+        color: var(--color-white);
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}

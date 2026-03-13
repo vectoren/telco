@@ -1,1 +1,63 @@
-<p>home works!</p>
+<section class="hero" [class.visible]="isLoaded()">
+  <div class="container">
+    <div class="hero-content">
+      <span class="badge">Eksperci Teleinformatyki</span>
+      <h1>Projektujemy sieci <br><span class="highlight">przyszłości.</span></h1>
+      <p>Kompleksowy montaż, konfiguracja i utrzymanie infrastruktury IT dla Twojego biznesu. Gwarantujemy stabilność, której potrzebuje Twoja firma.</p>
+      
+      <div class="hero-actions">
+        <a routerLink="/portfolio" class="btn-primary">Zobacz realizacje</a>
+        <a routerLink="/cennik" class="btn-secondary">Sprawdź ofertę</a>
+      </div>
+    </div>
+  </div>
+  <div class="grid-overlay"></div>
+</section>
+
+<section class="features-preview">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="text-accent">Nasze Kompetencje</h2>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-item glass-panel">
+        <div class="icon">📡</div>
+        <h3>Sieci LAN/WAN</h3>
+        <p>Projektowanie i budowa niezawodnych sieci opartych o rozwiązania Cisco, Ubiquiti i Mikrotik.</p>
+      </div>
+      
+      <div class="feature-item glass-panel">
+        <div class="icon">🔒</div>
+        <h3>Bezpieczeństwo IT</h3>
+        <p>Wdrażanie systemów Firewall, VPN oraz zaawansowanych protokołów ochrony danych.</p>
+      </div>
+      
+      <div class="feature-item glass-panel">
+        <div class="icon">☁️</div>
+        <h3>Serwerownie</h3>
+        <p>Montaż szaf RACK, zarządzanie okablowaniem (cable management) i setup serwerów.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-cta">
+  <div class="container">
+    <div class="cta-wrapper glass-panel reveal">
+      <div class="cta-content">
+        <span class="text-accent">// KONTAKT</span>
+        <h2>Gotowy na modernizację swojej sieci?</h2>
+        <p>Pomożemy ci w tym!</p>
+      </div>
+      
+      <div class="cta-actions">
+        <a href="mailto:{{company.email}}"> class="btn-primary">Napisz do nas</a>
+        <div class="phone-box">
+          <span class="label">Lub zadzwoń bezpośrednio:</span>
+          <span class="number">{{company.phone}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { COMPANY_INFO } from '../../../core/company-data';
 
 @Component({
   selector: 'app-footer',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.scss',
 })
 export class Footer {
+  company = COMPANY_INFO;
   currentYear = new Date().getFullYear();
 }
