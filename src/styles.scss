@@ -45,40 +45,73 @@ h1, h2, h3, h4 {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(1rem, 3vw, 2rem);
+  
+  @media (max-width: 640px) {
+    padding: 0 1rem;
+  }
 }
 
-.text-accent { color: var(--color-accent); font-family: var(--font-mono); }
+.text-accent { 
+  color: var(--color-accent); 
+  font-family: var(--font-mono); 
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+}
 
 .glass-panel {
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
   border: 1px solid var(--glass-border);
-  border-radius: 8px;
+  border-radius: clamp(6px, 2vw, 12px);
+  padding: clamp(1rem, 4vw, 2rem);
+  
+  @media (max-width: 640px) {
+    padding: 1rem;
+    border-radius: 8px;
+  }
 }
 
 .btn-primary {
-  padding: 0.8rem 1.8rem;
+  padding: clamp(0.6rem, 2vw, 0.8rem) clamp(1.2rem, 4vw, 1.8rem);
   border: 1px solid var(--color-accent);
   color: var(--color-accent);
   background: transparent;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   cursor: pointer;
   transition: var(--transition-base);
   text-decoration: none;
   display: inline-block;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+
+  @media (max-width: 640px) {
+    padding: 0.7rem 1.4rem;
+    font-size: 0.8rem;
+  }
 
   &:hover {
     background: var(--color-accent-glow);
     box-shadow: 0 0 15px var(--color-accent-glow);
   }
+
+  &:active {
+    transform: scale(0.98);
+  }
 }
 
 /* --- 4. LAYOUT --- */
 main {
-  padding-top: 80px; // Miejsce na fixed navbar
+  padding-top: clamp(60px, 8vw, 80px);
   min-height: 100vh;
+  
+  @media (max-width: 768px) {
+    padding-top: 70px;
+  }
+  
+  @media (max-width: 480px) {
+    padding-top: 60px;
+  }
 }
 
 /* --- 5. ANIMACJE WEJŚCIA (SSR Friendly) --- */

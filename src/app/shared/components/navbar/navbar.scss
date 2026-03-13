@@ -2,13 +2,16 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 80px;
+  height: clamp(60px, 10vw, 80px);
   z-index: 1000;
-  // Używamy zmiennych z :root (styles.scss)
   background: var(--color-bg-primary); 
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--glass-border);
   transition: var(--transition-base);
+
+  @media (max-width: 768px) {
+    height: 60px;
+  }
 
   .nav-container {
     max-width: 1200px;
@@ -17,37 +20,51 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 clamp(1rem, 3vw, 2rem);
+    box-sizing: border-box;
+    
+    @media (max-width: 640px) {
+      padding: 0 1rem;
+    }
   }
 
   .logo {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
     font-weight: 800;
     color: var(--color-white);
     text-decoration: none;
-    letter-spacing: 1px;
+    letter-spacing: clamp(0.5px, 1vw, 1px);
+    flex-shrink: 0;
     
     span { 
       color: var(--color-accent); 
+    }
+    
+    @media (max-width: 640px) {
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
     }
   }
 
   .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
 
-    @media (max-width: 768px) { display: none; }
+    @media (max-width: 768px) { 
+      display: none; 
+    }
 
     a {
       color: var(--color-text-muted);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: clamp(0.75rem, 1.5vw, 0.85rem);
       font-weight: 500;
-      font-family: var(--font-mono); // Techniczny look
+      font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: clamp(0.5px, 1vw, 1px);
       transition: var(--transition-base);
       position: relative;
+      white-space: nowrap;
 
       &:hover {
         color: var(--color-accent);
@@ -76,52 +93,89 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: clamp(8px, 2vw, 10px);
+    flex-shrink: 0;
 
-    @media (max-width: 768px) { display: block; }
+    @media (max-width: 768px) { 
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+    }
     
     span {
       display: block;
-      width: 22px;
+      width: clamp(20px, 5vw, 22px);
       height: 2px;
       background: var(--color-accent);
-      margin: 5px 0;
       transition: var(--transition-base);
+      
+      @media (max-width: 640px) {
+        width: 20px;
+      }
     }
 
     &.open {
-      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      span:nth-child(2) { transform: scaleX(0); }
-      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      span:nth-child(1) { 
+        transform: translateY(7px) rotate(45deg); 
+      }
+      span:nth-child(2) { 
+        transform: scaleX(0); 
+        opacity: 0;
+      }
+      span:nth-child(3) { 
+        transform: translateY(-7px) rotate(-45deg); 
+      }
     }
   }
 }
 
 .mobile-overlay {
   position: fixed;
-  inset: 0;
+  top: 60px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 100%;
   background: var(--color-bg-secondary);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  transform: translateX(100%); // Wysuwamy z boku dla odmiany
-  transition: var(--transition-base);
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 0;
+  gap: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   z-index: 999;
+  overflow: hidden;
+  border-top: 1px solid var(--glass-border);
 
   &.show { 
     transform: translateX(0); 
   }
 
   a {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: var(--color-white);
     text-decoration: none;
     font-family: var(--font-mono);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition-base);
+    display: block;
+    flex-shrink: 0;
     
+    &:hover {
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--color-accent);
+    }
+
     &.active {
       color: var(--color-accent);
+      background: rgba(100, 255, 218, 0.05);
     }
   }
 }

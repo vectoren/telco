@@ -1,24 +1,29 @@
 @use "sass:math";
+
 .error-page {
-  height: 85vh;
+  min-height: clamp(70vh, 85vh, 100vh);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: clamp(1.5rem, 3vw, 2rem);
+
+  @media (max-width: 640px) {
+    padding: 1.5rem;
+  }
 
   .glitch-wrapper {
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1.5rem, 3vw, 2rem);
   }
 
   .glitch {
-    font-size: 8rem;
+    font-size: clamp(2.5rem, 10vw, 8rem);
     font-weight: 900;
     position: relative;
     color: var(--color-white);
     font-family: var(--font-mono);
+    line-height: 1.1;
     
-    // Prosty efekt glitcha
     &::before, &::after {
       content: attr(data-text);
       position: absolute;
@@ -29,15 +34,15 @@
     }
 
     &::before {
-      left: 2px;
+      left: clamp(1px, 1vw, 2px);
       text-shadow: -2px 0 var(--color-accent);
       clip: rect(44px, 450px, 56px, 0);
       animation: glitch-anim 5s infinite linear alternate-reverse;
     }
 
     &::after {
-      left: -2px;
-      text-shadow: -2px 0 #ff00c1; // Akcent błędu
+      left: clamp(-2px, -1vw, -1px);
+      text-shadow: -2px 0 #ff00c1;
       clip: rect(100px, 450px, 120px, 0);
       animation: glitch-anim 2s infinite linear alternate-reverse;
     }
@@ -45,37 +50,66 @@
 
   .terminal-box {
     background: rgba(0, 0, 0, 0.3);
-    padding: 2rem;
-    border-radius: 8px;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border-radius: clamp(6px, 1.5vw, 8px);
     border: 1px solid var(--glass-border);
-    margin-bottom: 3rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
     text-align: left;
     font-family: var(--font-mono);
-    max-width: 500px;
+    max-width: clamp(280px, 90vw, 500px);
+    margin-left: auto;
+    margin-right: auto;
 
     p {
-      margin: 0.5rem 0;
-      font-size: 0.9rem;
+      margin: clamp(0.4rem, 0.8vw, 0.5rem) 0;
+      font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+      line-height: 1.4;
+      word-break: break-word;
     }
 
-    .command { color: var(--color-text-muted); }
-    .response { color: var(--color-accent); }
+    .command { 
+      color: var(--color-text-muted); 
+    }
+    
+    .response { 
+      color: var(--color-accent); 
+    }
   }
 
   .actions {
     display: flex;
-    gap: 1rem;
+    gap: clamp(0.75rem, 2vw, 1rem);
     justify-content: center;
+    flex-wrap: wrap;
 
-    @media (max-width: 600px) { flex-direction: column; }
+    @media (max-width: 600px) { 
+      flex-direction: column;
+      gap: 0.75rem;
+    }
     
     .btn-secondary {
       color: var(--color-text-muted);
       text-decoration: none;
       font-family: var(--font-mono);
-      font-size: 0.9rem;
+      font-size: clamp(0.8rem, 1.5vw, 0.9rem);
       align-self: center;
-      &:hover { color: var(--color-accent); }
+      padding: clamp(0.6rem, 1.5vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
+      border: 1px solid var(--glass-border);
+      border-radius: 4px;
+      transition: var(--transition-base);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+      
+      @media (max-width: 600px) {
+        align-self: stretch;
+        text-align: center;
+      }
+      
+      &:hover { 
+        color: var(--color-accent);
+        border-color: var(--color-accent);
+      }
     }
   }
 }
