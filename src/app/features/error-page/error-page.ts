@@ -1,9 +1,10 @@
 import { isPlatformServer } from '@angular/common';
 import { Component, Inject, Optional, PLATFORM_ID } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-error-page',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './error-page.html',
   styleUrl: './error-page.scss',
 })
