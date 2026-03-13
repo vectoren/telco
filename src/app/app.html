@@ -1,6 +1,16 @@
 <app-navbar></app-navbar>
 
-<main>
+@if (isLoading()) {
+  <div class="app-loader-container">
+    <div class="loader-bar"></div>
+    <div class="loader-status">
+      <span class="text-accent">// ŁADOWANIE</span>
+      <span class="dots">...</span>
+    </div>
+  </div>
+}
+
+<main [class.blur-content]="isLoading()">
   <router-outlet></router-outlet>
 </main>
 
