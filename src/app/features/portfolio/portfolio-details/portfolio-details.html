@@ -1,1 +1,67 @@
-<p>portfolio-details works!</p>
+@if (project(); as p) {
+<article class="project-details">
+  <header class="project-hero" [style.backgroundImage]="'url(' + p.image + ')'">
+    <div class="hero-overlay">
+      <div class="container header-content">
+        <a routerLink="/portfolio" class="back-link">
+          <span class="text-accent">← // POWRÓT</span>
+        </a>
+        <h1>{{ p.title }}</h1>
+      </div>
+    </div>
+  </header>
+
+  <div class="container project-layout">
+    <section class="main-content">
+      <div class="section-header">
+        <span class="text-accent">// ANALIZA PROJEKTU</span>
+        <h2>Opis techniczny</h2>
+      </div>
+      
+      <div class="rich-text">
+        <p>{{ p.fullDescription || 'Trwa dokumentowanie szczegółów technicznych tej instalacji...' }}</p>
+      </div>
+
+      <div class="project-gallery">
+        <img [src]="p.image" alt="Widok instalacji" class="glass-image">
+      </div>
+    </section>
+
+    <aside class="project-sidebar">
+      <div class="spec-box glass-panel">
+        <div class="section-header">
+          <span class="text-accent">// SPECYFIKACJA</span>
+        </div>
+        
+        <div class="spec-list">
+          <div class="spec-item">
+            <span class="label">KLIENT</span>
+            <span class="value">{{ p.client }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="label">KATEGORIA</span>
+            <span class="value">{{ p.category }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="label">TECHNOLOGIE</span>
+            <div class="tag-cloud">
+              @for (tag of p.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-cta">
+          <a href="mailto:biuro@telco.pl" class="btn-primary">Zapytaj o podobne rozwiązanie</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+</article>
+} @else {
+  <div class="container error-state">
+    <h2>Nie znaleziono projektu</h2>
+    <a routerLink="/portfolio" class="btn-primary">Wróć do listy</a>
+  </div>
+}
