@@ -8,7 +8,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 clamp(1rem, 3vw, 2rem);
-    
+
     @media (max-width: 640px) {
       padding: 0 1rem;
     }
@@ -37,9 +37,9 @@
     color: var(--color-white);
     text-decoration: none;
     letter-spacing: 1px;
-    
-    span { 
-      color: var(--color-accent); 
+
+    span {
+      color: var(--color-accent);
     }
   }
 
@@ -63,25 +63,67 @@
   ul {
     list-style: none;
     padding: 0;
-    
+
     li {
       margin-bottom: clamp(0.6rem, 1.5vw, 0.8rem);
       color: var(--color-text-muted);
       font-size: clamp(0.8rem, 1.5vw, 0.9rem);
       line-height: 1.4;
-      
+
       a {
         color: inherit;
         text-decoration: none;
         transition: var(--transition-base);
-        
-        &:hover { 
-          color: var(--color-accent); 
+
+        &:hover {
+          color: var(--color-accent);
         }
       }
 
-      span { 
-        color: var(--color-text-main); 
+      span {
+        color: var(--color-text-main);
+      }
+    }
+  }
+
+
+  .footer-contact {
+    h3 {
+      font-family: var(--font-mono);
+      color: var(--color-white);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 1.2rem;
+        display: flex;
+        flex-direction: column; // Układ pionowy dla etykiety i linku
+
+        small {
+          font-family: var(--font-mono);
+          color: var(--color-accent);
+          font-size: 0.65rem;
+          letter-spacing: 1px;
+          margin-bottom: 0.2rem;
+        }
+
+        a,
+        span {
+          color: var(--color-text-muted);
+          text-decoration: none;
+          font-size: 0.95rem;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: var(--color-accent);
+          }
+        }
       }
     }
   }
@@ -104,9 +146,9 @@
       box-shadow: 0 0 8px #4caf50;
       flex-shrink: 0;
     }
-    
-    .status-text { 
-      color: var(--color-text-muted); 
+
+    .status-text {
+      color: var(--color-text-muted);
       white-space: nowrap;
     }
   }

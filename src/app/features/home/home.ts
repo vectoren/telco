@@ -1,4 +1,4 @@
-import { afterNextRender, Component, OnInit, signal } from '@angular/core';
+import { afterNextRender, Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { COMPANY_INFO, HERO_TITLES } from '../../core/company-data';
 

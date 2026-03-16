@@ -1,6 +1,9 @@
 export const COMPANY_INFO = {
   name: 'Telco',
-  email: 'info@telco.pl',
+  email: {
+    info: 'info@telco.pl',
+    support: 'bok@telco.pl'
+  },
   phone: '+48 123 456 789',
   address: 'ul. Technologiczna 1, 00-001 Warszawa',
   socials: {

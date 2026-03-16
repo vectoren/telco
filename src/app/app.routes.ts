@@ -16,6 +16,7 @@ export const routes: Routes = [
             }
         ]
     },
+    { path: 'kontakt', loadComponent: () => import('./features/contact/contact').then(m => m.Contact), title: 'Kontakt'},
     { path: '404', loadComponent: () => import('./features/error-page/error-page').then(m => m.ErrorPage), title: '404 - Nie Znaleziono Strony'},
     { path: '**', loadComponent: () => import('./features/error-page/error-page').then(m => m.ErrorPage), title: '404 - Nie Znaleziono Strony'}
 ];

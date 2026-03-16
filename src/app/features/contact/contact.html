@@ -1,0 +1,62 @@
+<section class="contact-section container">
+  <div class="section-header">
+    <span class="text-accent">// KONTAKT</span>
+    <h2>Porozmawiajmy o Twojej sieci</h2>
+    <p>Masz pytania dotyczące instalacji lub potrzebujesz indywidualnej wyceny? Jesteśmy do Twojej dyspozycji.</p>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div class="info-card glass-panel">
+        <div class="info-item">
+          <span class="label">Adres biura</span>
+          <p>{{ company.address }}</p>
+        </div>
+        <div class="info-item">
+          <span class="label">Telefon</span>
+          <p>{{ company.phone }}</p>
+        </div>
+        <div class="info-item">
+          <span class="label">Ogólne zapytania</span>
+          <a [href]="'mailto:' + company.email.info">{{ company.email.info }}</a>
+        </div>
+        <div class="info-item">
+          <span class="label">Wsparcie techniczne</span>
+          <a [href]="'mailto:' + company.email.support">{{ company.email.support }}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrapper glass-panel">
+      @if (isSuccess()) {
+        <div class="success-message">
+          <span class="text-accent">// STATUS: OK</span>
+          <h3>Wiadomość została wysłana!</h3>
+          <p>Dziękujemy za kontakt. Nasz inżynier odpowie w ciągu 24 godzin.</p>
+          <button (click)="isSuccess.set(false)" class="btn-primary">Wyślij kolejną</button>
+        </div>
+      } @else {
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Imię i nazwisko</label>
+            <input id="name" type="text" formControlName="name" placeholder="Jan Kowalski">
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input id="email" type="email" formControlName="email" placeholder="twoj@email.pl">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Twoje pytanie / Szczegóły projektu</label>
+            <textarea id="message" formControlName="message" rows="5" placeholder="Opisz swoje potrzeby..."></textarea>
+          </div>
+
+          <button type="submit" [disabled]="contactForm.invalid || isSubmitting()" class="btn-primary">
+            {{ isSubmitting() ? 'Wysyłanie...' : 'Wyślij zapytanie' }}
+          </button>
+        </form>
+      }
+    </div>
+  </div>
+</section>

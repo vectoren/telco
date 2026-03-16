@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-grid">
-      
+
       <div class="footer-brand">
         <a routerLink="/" class="logo">TELCO<span>.</span></a>
         <p>Projektowanie i wdrażanie zaawansowanej infrastruktury teleinformatycznej dla ciebie.</p>
@@ -17,15 +17,29 @@
           <li><a routerLink="/">Home</a></li>
           <li><a routerLink="/portfolio">Realizacje</a></li>
           <li><a routerLink="/cennik">Cennik</a></li>
+          <li><a routerLink="/kontakt">Kontakt</a></li>
         </ul>
       </div>
 
       <div class="footer-contact">
         <h3>Kontakt</h3>
         <ul>
-          <li>Email: <span>{{company.email}}</span></li>
-          <li>Tel: <span>{{company.phone}}</span></li>
-          <li>Lokalizacja: <span>{{company.address}}</span></li>
+          <li>
+            <small>// OGÓLNE</small>
+            <span>{{ company.email.info }}</span>
+          </li>
+          <li>
+            <small>// WSPARCIE BOK</small>
+            <span>{{ company.email.support }}</span>
+          </li>
+          <li>
+            <small>// TELEFON</small>
+            <span>{{ company.phone }}</span>
+          </li>
+          <li>
+            <small>// LOKALIZACJA</small>
+            <span>{{ company.address }}</span>
+          </li>
         </ul>
       </div>
 

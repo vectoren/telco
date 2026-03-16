@@ -13,7 +13,8 @@ export class Navbar {
   navLinks = [
     { path: '/', label: 'Home' },
     { path: '/portfolio', label: 'Realizacje' },
-    { path: '/cennik', label: 'Cennik' }
+    { path: '/cennik', label: 'Cennik' },
+    { path: '/kontakt', label: 'Kontakt' }
   ];
 
   toggleMenu() {

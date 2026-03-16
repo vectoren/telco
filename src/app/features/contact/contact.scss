@@ -1,0 +1,83 @@
+@use "sass:math";
+
+.contact-section {
+  padding: clamp(6rem, 10vw, 10rem) clamp(1rem, 3vw, 1.5rem);
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: clamp(3rem, 6vw, 5rem);
+    .text-accent { font-family: var(--font-mono); color: var(--color-accent); letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin: 1rem 0; color: var(--color-white); }
+    p { color: var(--color-text-muted); max-width: 600px; margin: 0 auto; }
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 992px) {
+      grid-template-columns: 350px 1fr;
+    }
+  }
+
+  .contact-info {
+    .info-card {
+      padding: 2.5rem;
+      .info-item {
+        margin-bottom: 2rem;
+        .label { display: block; font-family: var(--font-mono); font-size: 0.7rem; color: var(--color-accent); margin-bottom: 0.5rem; text-transform: uppercase; }
+        p, a { color: var(--color-white); font-size: 1.1rem; text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--color-accent); }
+      }
+    }
+  }
+
+  .contact-form-wrapper {
+    padding: clamp(1.5rem, 4vw, 3rem);
+
+    form {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label { font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-text-muted); }
+
+      input, textarea {
+        background: rgba(var(--color-bg-primary), 0.4);
+        border: 1px solid var(--glass-border);
+        border-radius: 4px;
+        padding: 1rem;
+        color: var(--color-white);
+        font-family: inherit;
+        transition: border-color 0.3s;
+
+        &:focus {
+          outline: none;
+          border-color: var(--color-accent);
+          background: rgba(var(--color-bg-primary), 0.6);
+        }
+      }
+    }
+
+    .btn-primary {
+      width: 100%;
+      margin-top: 1rem;
+      &:disabled { opacity: 0.5; cursor: not-allowed; }
+    }
+  }
+
+  .success-message {
+    text-align: center;
+    padding: 2rem;
+    h3 { margin: 1rem 0; font-size: 1.8rem; }
+    p { color: var(--color-text-muted); margin-bottom: 2rem; }
+  }
+}
