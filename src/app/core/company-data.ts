@@ -134,3 +134,86 @@ export const UNIT_PRICING = [
     ]
   }
 ];
+
+export const PORTFOLIO_DATA = [
+  {
+    id: 1,
+    title: 'Sieć LAN w Biurowcu klasy A',
+    category: 'Infrastruktura',
+    client: 'SkyTower Business Center',
+    image: 'assets/portfolio/office-network.jpg',
+    tags: ['RACK 42U', 'Cat 7', 'Certyfikacja'],
+    slug: 'siec-lan-biurowiec',
+    fullDescription: 'Kompleksowe wykonanie sieci strukturalnej obejmującej 150 punktów logicznych w standardzie Cat 7. Projekt obejmował montaż dwóch szaf RACK 42U, wykonanie magistrali światłowodowej między piętrami oraz pełną certyfikację okablowania miernikiem Fluke.'
+  },
+  {
+    id: 2,
+    title: 'WiFi 6 Mesh w Rezydencji',
+    category: 'Smart Home',
+    client: 'Klient Indywidualny',
+    image: 'assets/portfolio/home-wifi.jpg',
+    tags: ['WiFi 6', 'Ubiquiti', 'Roaming'],
+    slug: 'wifi-mesh-rezydencja',
+    fullDescription: 'Wdrożenie profesjonalnego systemu bezprzewodowego w domu o powierzchni 450m2. Wykorzystano 6 punktów dostępowych WiFi 6 zintegrowanych w technologii Mesh, co zapewniło nieprzerwany roaming i pełną przepustowość łącza 1Gbps w każdym pomieszczeniu oraz ogrodzie.'
+  },
+  {
+    id: 3,
+    title: 'Monitoring IP i System Alarmowy',
+    category: 'Security',
+    client: 'Logistyka Polska Sp. z o.o.',
+    image: 'assets/portfolio/security-warehouse.jpg',
+    tags: ['4K IP', 'Dahua', 'VCA'],
+    slug: 'monitoring-magazyn-logistyczny',
+    fullDescription: 'Instalacja systemu monitoringu wizyjnego opartego na 24 kamerach 4K z analityką obrazu (AI). System wykrywa wtargnięcia w strefy zastrzeżone i automatycznie powiadamia ochronę, redukując liczbę fałszywych alarmów o 90%.'
+  },
+  {
+    id: 4,
+    title: 'Światłowód w Budynku Wielorodzinnym',
+    category: 'Infrastruktura',
+    client: 'Deweloper Nova',
+    image: 'assets/portfolio/fiber-apartment.jpg',
+    tags: ['FTTH', 'Spawanie', 'Splittery'],
+    slug: 'swiatlowod-osiedle-nova',
+    fullDescription: 'Wykonanie pionów teletechnicznych i doprowadzenie światłowodu (FTTH) do 48 lokali mieszkalnych. Prace obejmowały spawanie w przełącznicach głównych, montaż gniazd abonenckich oraz pomiary tłumienia toru optycznego.'
+  },
+  {
+    id: 5,
+    title: 'Modernizacja Serwerowni Banku',
+    category: 'Enterprise',
+    client: 'Bank Regionalny',
+    image: 'assets/portfolio/server-room.jpg',
+    tags: ['Firewall', 'HA Cluster', 'UPS'],
+    slug: 'modernizacja-serwerowni-bank',
+    fullDescription: 'Audyt i wymiana kluczowych urządzeń sieciowych w infrastrukturze bankowej. Wdrożenie klastra wysokiej dostępności (High Availability) opartego na urządzeniach FortiGate oraz zabezpieczenie zasilania systemem redundantnych UPS-ów.'
+  },
+  {
+    id: 6,
+    title: 'Sieć Hybrydowa dla Hotelu',
+    category: 'Hotelarstwo',
+    client: 'Grand Hotel Spa',
+    image: 'assets/portfolio/hotel-network.jpg',
+    tags: ['VLAN', 'Portal Gościa', 'QoS'],
+    slug: 'siec-hybrydowa-hotel',
+    fullDescription: 'Separacja ruchu sieciowego dla personelu i gości hotelowych przy użyciu protokołu VLAN. Wdrożenie Captive Portal z integracją mediów społecznościowych oraz priorytetyzacja ruchu (QoS) dla wideokonferencji w strefie biznesowej.'
+  },
+  {
+    id: 7,
+    title: 'Monitoring Osiedla Zamkniętego',
+    category: 'Security',
+    client: 'Wspólnota Mieszkaniowa Zielna',
+    image: 'assets/portfolio/housing-cctv.jpg',
+    tags: ['PTZ', 'ANPR', 'Monitoring'],
+    slug: 'monitoring-osiedle-zielna',
+    fullDescription: 'System nadzoru osiedla obejmujący kamery obrotowe PTZ oraz system rozpoznawania tablic rejestracyjnych (ANPR) przy bramach wjazdowych, zintegrowany z systemem automatyki bramowej.'
+  },
+  {
+    id: 8,
+    title: 'Instalacja Smart Office',
+    category: 'Smart Office',
+    client: 'TechHub Coworking',
+    image: 'assets/portfolio/smart-office.jpg',
+    tags: ['KNX', 'Audio Multiroom', 'Dali'],
+    slug: 'smart-office-techhub',
+    fullDescription: 'Automatyzacja oświetlenia i klimatyzacji w nowoczesnej przestrzeni coworkingowej. Zastosowanie protokołu KNX pozwoliło na redukcję kosztów energii o 30% oraz centralne zarządzanie wszystkimi instalacjami z poziomu tabletu.'
+  }
+];
