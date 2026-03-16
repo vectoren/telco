@@ -1,1 +1,20 @@
-<p>portfolio-list works!</p>
+<section class="portfolio-section container">
+  <div class="section-header">
+    <span class="text-accent">// NASZE REALIZACJE</span>
+    <h2>Projekty teletechniczne</h2>
+    <p>Od zaawansowanych sieci biurowych po inteligentne rozwiązania dla domów jednorodzinnych.</p>
+  </div>
+
+  <div class="grid">
+    @for (project of projects; track project.id) {
+      <app-portfolio-card [project]="project"></app-portfolio-card>
+    }
+  </div>
+</section>
+
+<section class="portfolio-cta container">
+  <div class="custom-cta">
+    <p>Masz nietypowe zapytanie? <strong>Wykonujemy projekty szyte na miarę Twoich potrzeb i budżetu.</strong></p>
+    <a routerLink="/kontakt" class="btn-primary">Skonsultuj swój projekt</a>
+  </div>
+</section>
